@@ -1,0 +1,103 @@
+export interface SearchResult {
+  title: string;
+  relevance: number;
+  snippet: string;
+}
+
+export interface KeyPoint {
+  icon: string;
+  text: string;
+}
+
+export interface AISummary {
+  text: string;
+  points: KeyPoint[];
+}
+
+export interface HistoryItem {
+  query: string;
+  timestamp: number;
+}
+
+export interface RetrievalResult {
+  id: string;
+  text: string;
+  score: number;
+  metadata?: {
+    title?: string;
+    chapter?: string;
+    source?: string;
+    [key: string]: any;
+  };
+}
+
+export interface StreamChunk {
+  type: "thinking" | "content" | "retrieval" | "done" | "error";
+  content?: string;
+  retrieval_results?: RetrievalResult[];
+  error?: string;
+  prompt_tokens?: number;
+  completion_tokens?: number;
+  total_tokens?: number;
+}
+
+export interface ChatCompletionResponse {
+  answer: string;
+  retrieval_results: RetrievalResult[];
+  reasoning?: string;
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+  model: string;
+}
+
+export interface ChatCompletionResponse {
+  answer: string;
+  retrieval_results: RetrievalResult[];
+  reasoning?: string;
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+  model: string;
+}
+
+export const mockResults: SearchResult[] = [
+  {
+    title: "韩立的修炼历程",
+    relevance: 95,
+    snippet:
+      "韩立在黄枫谷内闭关苦修，将紫猴花、天灵果等珍稀灵草炼制成筑基丹，服用后成功筑基，从此踏上真正的修仙之路。筑基成功后，韩立的灵力大幅提升，开始学习更多高深法术...",
+  },
+  {
+    title: "青竹蜂云剑的炼制",
+    relevance: 89,
+    snippet:
+      "韩立用万年金雷竹炼制出七十二口青竹蜂云剑，剑刃锋利无比，可组合成大庚剑阵。此剑蕴含雷属性灵力，对妖魔邪祟有特殊克制效果，是韩立后期的核心法宝之一...",
+  },
+  {
+    title: "乱星海的秘境探险",
+    relevance: 84,
+    snippet:
+      "在乱星海的星宫海域，韩立发现了传说中的虚天殿秘境。内藏无数修仙者的遗留宝藏和上古功法，但机关重重，危险异常。韩立凭借智慧和谨慎，成功获得部分传承...",
+  },
+  {
+    title: "血玉蜘蛛的捕捉与培养",
+    relevance: 78,
+    snippet:
+      "血玉蜘蛛是辅助炼制筑基丹的关键材料。韩立在百兽山历经艰险捕获幼蛛，并精心培育至成熟。成蛛后可产丝，丝线坚韧异常，常用于炼制防御类法宝...",
+  },
+];
+
+export const mockSummary: AISummary = {
+  text: "根据搜索结果，韩立是《凡人修仙传》的主角，从凡人逐步修炼成仙。他的核心法宝青竹蜂云剑由万年金雷竹炼制而成，蕴含雷属性灵力。筑基期是修仙的关键阶段，需要筑基丹辅助，而血玉蜘蛛则是炼制筑基丹的重要材料。乱星海的虚天殿是韩立早期的重要冒险地点，内藏上古功法和珍稀法宝。",
+  points: [
+    { icon: "🧊", text: "筑基期：修仙基础阶段，需筑基丹辅助" },
+    { icon: "⚔️", text: "青竹蜂云剑：韩立本命法宝，七十二口可组剑阵" },
+    { icon: "🕷️", text: "血玉蜘蛛：炼制筑基丹的关键材料" },
+    { icon: "🌊", text: "虚天殿：乱星海上古秘境，藏有珍稀传承" },
+  ],
+};

@@ -1,0 +1,1716 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 1440,
+      "height": 3000,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#1a1a2e",
+            "position": 0
+          },
+          {
+            "color": "#16213e",
+            "position": 0.5
+          },
+          {
+            "color": "#0f0f1a",
+            "position": 1
+          }
+        ]
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "J0JyMK",
+          "x": 0,
+          "y": 0,
+          "name": "凡人修仙传 RAG 检索系统",
+          "clip": true,
+          "width": 1440,
+          "height": 3000,
+          "fill": "#faf6f0",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bkHRS",
+              "name": "侧边栏",
+              "width": 260,
+              "height": "fill_container",
+              "fill": "#1e1e3f",
+              "stroke": {
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#4a4a7a"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "h4c81e",
+                  "fill": "#ffffff",
+                  "content": "📜 搜索历史",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "fGmvS",
+                  "width": "fill_container",
+                  "height": 48,
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Lc6MQ",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v5JjjY",
+                      "fill": "#a0a0c0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "韩立修炼功法",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "I3bzp",
+                      "fill": "#8080a0",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ryJF6",
+                  "width": "fill_container",
+                  "height": 48,
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "u1FF4W",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "R1lhT",
+                      "fill": "#a0a0c0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "青竹蜂云剑",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lBOGk",
+                      "fill": "#8080a0",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZZwcL",
+                  "width": "fill_container",
+                  "height": 48,
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PmnPj",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Eawte",
+                      "fill": "#a0a0c0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "乱星海秘境",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eqUFR",
+                      "fill": "#8080a0",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K1iTkO",
+                  "width": "fill_container",
+                  "height": 48,
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dD1GY",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Al7Wh",
+                      "fill": "#a0a0c0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "筑基丹配方",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hLe9d",
+                      "fill": "#8080a0",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qhAIU",
+                  "width": "fill_container",
+                  "height": 48,
+                  "cornerRadius": 8,
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bxX72",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "q1h5Gt",
+                      "fill": "#a0a0c0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "血玉蜘蛛",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yqRiu",
+                      "fill": "#8080a0",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YtvWl",
+                  "width": "fill_container",
+                  "height": 40,
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#7b68ee"
+                  },
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wxrM9",
+                      "content": "🗑️",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fi7Q8",
+                      "fill": "#7b68ee",
+                      "content": "清空历史",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "A8kD4",
+              "name": "主内容区",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                32,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Djzz1",
+                  "name": "搜索区域",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zCvD1",
+                      "width": "fill_container",
+                      "height": 60,
+                      "fill": "#2a2a4a",
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#7b68ee"
+                      },
+                      "gap": 16,
+                      "padding": [
+                        8,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zoTR0",
+                          "content": "🔎",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QE4U4",
+                          "fill": "#8080a0",
+                          "content": "搜索人物、功法、法宝、秘境...",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "CDN0A",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 0,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#7b68ee",
+                                "position": 0
+                              },
+                              {
+                                "color": "#6366f1",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 12,
+                          "gap": 8,
+                          "padding": [
+                            10,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "rzfBP",
+                              "content": "🔍",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QysHF",
+                              "fill": "#ffffff",
+                              "content": "搜索",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ywSb2",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ShO1g",
+                          "fill": "#a0a0c0",
+                          "content": "🔥 热门:",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ZHh0V",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dznue",
+                              "fill": "#c0c0e0",
+                              "content": "韩立",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bHKJw",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "D48cZ",
+                              "fill": "#c0c0e0",
+                              "content": "筑基",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QSxX9",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "u9sDrv",
+                              "fill": "#c0c0e0",
+                              "content": "青竹蜂云剑",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nxkVU",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "iGjti",
+                              "fill": "#c0c0e0",
+                              "content": "乱星海",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "h961t",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oPNKz",
+                              "fill": "#c0c0e0",
+                              "content": "血玉蜘蛛",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "tbt1P",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 20,
+                          "gap": 6,
+                          "padding": [
+                            6,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yG5Vm",
+                              "fill": "#c0c0e0",
+                              "content": "虚天殿",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RuRyN",
+                  "name": "AI总结区域",
+                  "width": "fill_container",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#2d1f5e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#1e1e3f",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#7b68ee"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "idKgF",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "aNdI5",
+                          "content": "✨",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "C9lPj",
+                          "fill": "#ffffff",
+                          "content": "AI 智能总结",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gafXy",
+                          "fill": "#7b68ee",
+                          "cornerRadius": 12,
+                          "gap": 4,
+                          "padding": [
+                            4,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "z4jeDT",
+                              "content": "🤖",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "l65pX",
+                              "fill": "#ffffff",
+                              "content": "基于RAG技术",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "eUKlz",
+                      "fill": "#d0d0f0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "根据搜索结果，韩立是《凡人修仙传》的主角，从凡人逐步修炼成仙。他的核心法宝青竹蜂云剑由万年金雷竹炼制而成，蕴含雷属性灵力。筑基期是修仙的关键阶段，需要筑基丹辅助，而血玉蜘蛛则是炼制筑基丹的重要材料。乱星海的虚天殿是韩立早期的重要冒险地点，内藏上古功法和珍稀法宝。",
+                      "lineHeight": 1.8,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CpbqJ",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "M5wtq3",
+                          "width": "fill_container",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 12,
+                          "gap": 12,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Mj3g3",
+                              "content": "🧊",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "sk7VF",
+                              "fill": "#c0c0e0",
+                              "content": "筑基期：修仙基础阶段，需筑基丹辅助",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vNWD9",
+                          "width": "fill_container",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 12,
+                          "gap": 12,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "uTOoy",
+                              "content": "⚔️",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "jmzW8",
+                              "fill": "#c0c0e0",
+                              "content": "青竹蜂云剑：韩立本命法宝，七十二口可组剑阵",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "CMiH0",
+                          "width": "fill_container",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 12,
+                          "gap": 12,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "qZZRb",
+                              "content": "🕷️",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "zEhKI",
+                              "fill": "#c0c0e0",
+                              "content": "血玉蜘蛛：炼制筑基丹的关键材料",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Q6VK1",
+                          "width": "fill_container",
+                          "fill": "#3a3a5c",
+                          "cornerRadius": 12,
+                          "gap": 12,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ckmSs",
+                              "content": "🌊",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "UHWip",
+                              "fill": "#c0c0e0",
+                              "content": "虚天殿：乱星海上古秘境，藏有珍稀传承",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vMglC",
+                  "name": "搜索结果",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "e3I8ZP",
+                      "width": "fill_container",
+                      "fill": "#d9d9d9ff",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "G1WSm",
+                          "fill": "#2a2a4a",
+                          "content": "搜索结果 (共 23 条)",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "V5X2mF",
+                          "fill": "#2a2a4a",
+                          "content": "按相关性排序 ▼",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t7t9HX",
+                      "name": "结果卡片1",
+                      "width": "fill_container",
+                      "fill": "#2a2a4a",
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#4a4a7a"
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "rMakJ",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "LI2T5",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "P0N5Z",
+                                  "fill": "#ffffff",
+                                  "content": "韩立的修炼历程",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 20,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "V3M1A",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#00d4ff",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 20,
+                              "gap": 6,
+                              "padding": [
+                                6,
+                                16
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "FJQ4j",
+                                  "content": "📊",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "DMQHm",
+                                  "fill": "#ffffff",
+                                  "content": "95% 相关",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "g2cCz",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "L3w0g",
+                              "content": "📖",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "MBnTN",
+                              "fill": "#8080a0",
+                              "content": "第 157 章 · 筑基中期",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "i5Vt6n",
+                          "fill": "#d0d0f0",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "韩立在黄枫谷内闭关苦修，将紫猴花、天灵果等珍稀灵草炼制成筑基丹，服用后成功筑基，从此踏上真正的修仙之路。筑基成功后，韩立的灵力大幅提升，开始学习更多高深法术...",
+                          "lineHeight": 1.8,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "lnFTa",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "OfjVt",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10,
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "WLVbS",
+                                  "content": "📋",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "A7m7XR",
+                                  "fill": "#ffffff",
+                                  "content": "查看详情",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "olAw1",
+                              "cornerRadius": 10,
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": "#7b68ee"
+                              },
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "jrgoj",
+                                  "content": "💡",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "RqDnd",
+                                  "fill": "#d4a574",
+                                  "content": "相关推荐",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a8y9Fv",
+                      "name": "结果卡片2",
+                      "width": "fill_container",
+                      "fill": "#2a2a4a",
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#4a4a7a"
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "J2sO9",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "W6Gglq",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "y1Cfq",
+                                  "fill": "#ffffff",
+                                  "content": "青竹蜂云剑的炼制",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 20,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "J2aHk",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 20,
+                              "gap": 6,
+                              "padding": [
+                                6,
+                                16
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "mztZs",
+                                  "content": "📊",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "z1z6fa",
+                                  "fill": "#ffffff",
+                                  "content": "89% 相关",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "k5gWJy",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "m6eg90",
+                              "content": "📖",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "rdCUe",
+                              "fill": "#8080a0",
+                              "content": "第 321 章 · 本命法宝",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "r2hdk0",
+                          "fill": "#d0d0f0",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "韩立用万年金雷竹炼制出七十二口青竹蜂云剑，剑刃锋利无比，可组合成大庚剑阵。此剑蕴含雷属性灵力，对妖魔邪祟有特殊克制效果，是韩立后期的核心法宝之一...",
+                          "lineHeight": 1.8,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "k4EtR7",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "vD6y8",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10,
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "zWddz",
+                                  "content": "📋",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "C6iVCx",
+                                  "fill": "#ffffff",
+                                  "content": "查看详情",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "nQ3cM",
+                              "cornerRadius": 10,
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": "#7b68ee"
+                              },
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "MSjLd",
+                                  "content": "💡",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "F8jty",
+                                  "fill": "#d4a574",
+                                  "content": "相关推荐",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MDYhG",
+                      "name": "结果卡片3",
+                      "width": "fill_container",
+                      "fill": "#2a2a4a",
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#4a4a7a"
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "GssQm",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kyiWK",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "EQk1k",
+                                  "fill": "#ffffff",
+                                  "content": "乱星海的秘境探险",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 20,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "ZhxnH",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 20,
+                              "gap": 6,
+                              "padding": [
+                                6,
+                                16
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "I9mrkI",
+                                  "content": "📊",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "GcMia",
+                                  "fill": "#ffffff",
+                                  "content": "84% 相关",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "SUJg2",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "YqlNt",
+                              "content": "📖",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "hDNS1",
+                              "fill": "#8080a0",
+                              "content": "第 445 章 · 海外仙岛",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "drPHP",
+                          "fill": "#d0d0f0",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "在乱星海的星宫海域，韩立发现了传说中的虚天殿秘境。内藏无数修仙者的遗留宝藏和上古功法，但机关重重，危险异常。韩立凭借智慧和谨慎，成功获得部分传承...",
+                          "lineHeight": 1.8,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bVo2e",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "ayHyc",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10,
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ZrhSO",
+                                  "content": "📋",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "nhoa6",
+                                  "fill": "#ffffff",
+                                  "content": "查看详情",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "iEbHH",
+                              "cornerRadius": 10,
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": "#7b68ee"
+                              },
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "pC85p",
+                                  "content": "💡",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "rtZOx",
+                                  "fill": "#d4a574",
+                                  "content": "相关推荐",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ioew7",
+                      "name": "结果卡片4",
+                      "width": "fill_container",
+                      "fill": "#2a2a4a",
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#4a4a7a"
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "V6n2Rb",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "qGS48",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "RPT9R",
+                                  "fill": "#ffffff",
+                                  "content": "血玉蜘蛛的捕捉与培养",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 20,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Y8Wtx8",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 20,
+                              "gap": 6,
+                              "padding": [
+                                6,
+                                16
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "sw335",
+                                  "content": "📊",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "nmOFF",
+                                  "fill": "#ffffff",
+                                  "content": "78% 相关",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "lR6cf",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "R6ffT",
+                              "content": "📖",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ElkS5",
+                              "fill": "#8080a0",
+                              "content": "第 234 章 · 妖兽培养",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZOQpA",
+                          "fill": "#d0d0f0",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "血玉蜘蛛是辅助炼制筑基丹的关键材料。韩立在百兽山历经艰险捕获幼蛛，并精心培育至成熟。成蛛后可产丝，丝线坚韧异常，常用于炼制防御类法宝...",
+                          "lineHeight": 1.8,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eF9jF",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "b85406",
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 0,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#7b68ee",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#6366f1",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10,
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "WNlsB",
+                                  "content": "📋",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "UnkjN",
+                                  "fill": "#ffffff",
+                                  "content": "查看详情",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "i5nxFm",
+                              "cornerRadius": 10,
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": "#7b68ee"
+                              },
+                              "gap": 8,
+                              "padding": [
+                                10,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "okaC8",
+                                  "content": "💡",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "vkqrl",
+                                  "fill": "#d4a574",
+                                  "content": "相关推荐",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XmQNN",
+                  "x": 0,
+                  "y": 0,
+                  "enabled": false,
+                  "width": "fit_content(0)",
+                  "height": "fit_content(0)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python *)",
+      "Bash(python3 -m venv --help)",
+      "Bash(grep *)",
+      "Bash(source *)",
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(curl *)",
+      "Bash(python -m json.tool)",
+      "Bash(bun init *)",
+      "Bash(bun install *)",
+      "Bash(bun run *)"
+    ]
+  }
+}
