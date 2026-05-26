@@ -5,25 +5,18 @@ import { mockResults } from "../types";
 interface SearchResultsProps {
   onViewDetail: (title: string) => void;
   onShowRecommendations: (title: string) => void;
-  sortAscending: boolean;
-  onSortToggle: () => void;
-  onApiResults?: (results: SearchResult[]) => void;
-  onApiSummary?: (summary: string) => void;
 }
 
 export const SearchResults: React.FC<SearchResultsProps> = ({
   onViewDetail,
   onShowRecommendations,
-  sortAscending,
-  onSortToggle,
-  onApiResults,
-  onApiSummary,
 }) => {
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
   const [thinking, setThinking] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [apiResponse, setApiResponse] = useState<SearchResult[]>([]);
+  const [sortAscending, setSortAscending] = useState(false);
 
   // 将后端API响应转换为前端格式
   const convertToSearchResult = (retrievalResult: RetrievalResult): SearchResult => {
@@ -99,7 +92,6 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                   if (chunk.retrieval_results && chunk.retrieval_results.length > 0) {
                     searchResults = chunk.retrieval_results.map(convertToSearchResult);
                     setApiResponse(searchResults);
-                    onApiResults?.(searchResults);
                   }
                   break;
 
@@ -116,7 +108,6 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                     aiSummary.push(chunk.content);
                     const fullSummary = aiSummary.join('');
                     setAnswer(fullSummary);
-                    onApiSummary?.(fullSummary);
                   }
                   break;
 
@@ -126,33 +117,27 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
 
                 case "error":
                   console.error("API错误:", chunk.error);
+                  setAnswer(chunk.error)
                   setIsLoading(false);
                   break;
               }
             } catch (e) {
-              console.error("解析数据失败:", e);
+              setAnswer("解析数据失败: " + e);
             }
           }
         }
       }
     } catch (error) {
-      console.error("搜索请求失败:", error);
       setIsLoading(false);
 
       // 超时错误处理
       if (error instanceof Error && error.name === 'AbortError') {
-        alert('请求超时，请检查后端服务是否正常运行或稍后重试');
+        setAnswer('请求超时，请检查后端服务是否正常运行或稍后重试');
         return;
       }
 
-      // 如果API调用失败，回退到模拟数据
-      const mockResultsWithQuery = mockResults.map(result => ({
-        ...result,
-        relevance: Math.floor(Math.random() * 20) + 70, // 70-90的相关度
-        snippet: `关于"${query}"的相关内容：${result.snippet}`
-      }));
-      setApiResponse(mockResultsWithQuery);
-      onApiResults?.(mockResultsWithQuery);
+      // 兜底显示
+      setAnswer("请求失败: " + error);
     }
   };
 
@@ -196,20 +181,8 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
 
         <div className="tags-container">
           <span className="tags-label">热门标签：</span>
-          <button className="tag-btn" onClick={() => setQuery("韩立")}>
-            韩立
-          </button>
-          <button className="tag-btn" onClick={() => setQuery("筑基")}>
-            筑基
-          </button>
-          <button className="tag-btn" onClick={() => setQuery("法宝")}>
-            法宝
-          </button>
-          <button className="tag-btn" onClick={() => setQuery("秘境")}>
-            秘境
-          </button>
-          <button className="tag-btn" onClick={() => setQuery("妖兽")}>
-            妖兽
+          <button className="tag-btn" onClick={() => setQuery("虚天鼎的作用")}>
+            虚天鼎的作用
           </button>
         </div>
       </div>
@@ -217,7 +190,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
       {/* 排序和统计 */}
       <div className="results-header">
         <h2 className="results-count">搜索结果 (共 {apiResponse.length} 条)</h2>
-        <button className="sort-btn" onClick={onSortToggle}>
+        <button className="sort-btn" onClick={() => {setSortAscending(!sortAscending)}}>
           按相关性排序 {sortAscending ? "▲" : "▼"}
         </button>
       </div>

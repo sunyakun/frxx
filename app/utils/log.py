@@ -9,7 +9,7 @@ def setup_logger(
     level: int = logging.INFO,
     log_file: Optional[str] = None,
     format_string: Optional[str] = None,
-    date_format: Optional[str] = None
+    date_format: Optional[str] = None,
 ) -> logging.Logger:
     """
     设置并返回一个 logger 实例
@@ -33,11 +33,11 @@ def setup_logger(
 
     # 默认日志格式
     if format_string is None:
-        format_string = '%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
+        format_string = "%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s"
 
     # 默认日期格式
     if date_format is None:
-        date_format = '%Y-%m-%d %H:%M:%S'
+        date_format = "%Y-%m-%d %H:%M:%S"
 
     # 创建格式化器
     formatter = logging.Formatter(format_string, date_format)
@@ -54,7 +54,7 @@ def setup_logger(
         log_path = Path(log_file)
         log_path.parent.mkdir(parents=True, exist_ok=True)
 
-        file_handler = logging.FileHandler(log_file, encoding='utf-8')
+        file_handler = logging.FileHandler(log_file, encoding="utf-8")
         file_handler.setLevel(level)
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
@@ -63,11 +63,7 @@ def setup_logger(
 
 
 # 创建全局 logger 实例
-logger = setup_logger(
-    name="rag_project",
-    level=logging.INFO,
-    log_file="logs/rag.log"
-)
+logger = setup_logger(name="rag_project", level=logging.INFO, log_file="logs/rag.log")
 
 
 def get_logger(name: Optional[str] = None) -> logging.Logger:

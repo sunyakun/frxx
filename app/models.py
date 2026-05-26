@@ -12,19 +12,29 @@ class ChatCompletionRequest(BaseModel):
     query: str = Field(..., min_length=1, description="用户问题")
     top_k: Optional[int] = Field(default=3, ge=1, le=10, description="检索结果数")
     stream: Optional[bool] = Field(default=True, description="是否流式输出")
-    ranker: Optional[Literal["rrf", "weighted"]] = Field(default="rrf", description="排序器类型")
-    ranker_params: Optional[RankerParams] = Field(default_factory=RankerParams, description="排序器参数")
+    ranker: Optional[Literal["rrf", "weighted"]] = Field(
+        default="rrf", description="排序器类型"
+    )
+    ranker_params: Optional[RankerParams] = Field(
+        default_factory=RankerParams, description="排序器参数"
+    )
 
 
 class RetrievalRequest(BaseModel):
     query: str = Field(..., min_length=1, description="检索查询文本")
     top_k: Optional[int] = Field(default=5, ge=1, le=10, description="返回结果数")
-    mode: Optional[Literal["hybrid", "dense", "sparse"]] = Field(default="hybrid", description="检索模式")
-    include_embeddings: Optional[bool] = Field(default=False, description="是否返回嵌入向量")
+    mode: Optional[Literal["hybrid", "dense", "sparse"]] = Field(
+        default="dense", description="检索模式"
+    )
+    include_embeddings: Optional[bool] = Field(
+        default=False, description="是否返回嵌入向量"
+    )
 
 
 class ChunkingParams(BaseModel):
-    max_characters: Optional[int] = Field(default=1000, ge=100, description="分块最大字符数")
+    max_characters: Optional[int] = Field(
+        default=1000, ge=100, description="分块最大字符数"
+    )
     overlap: Optional[int] = Field(default=50, ge=0, description="分块重叠字符数")
 
 
@@ -40,7 +50,9 @@ class DocumentMetadata(BaseModel):
 class DocumentUploadRequest(BaseModel):
     content: str = Field(..., min_length=1, description="文档内容")
     metadata: Optional[DocumentMetadata] = Field(default=None, description="文档元数据")
-    chunking: Optional[ChunkingParams] = Field(default_factory=ChunkingParams, description="分块参数")
+    chunking: Optional[ChunkingParams] = Field(
+        default_factory=ChunkingParams, description="分块参数"
+    )
 
 
 class RetrievalResult(BaseModel):

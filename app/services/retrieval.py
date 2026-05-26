@@ -10,7 +10,7 @@ async def search(
     query: str,
     collection_name: str,
     top_k: int = 3,
-    mode: Literal["hybrid", "dense", "sparse"] = "hybrid",
+    mode: Literal["hybrid", "dense", "sparse"] = "dense",
     ranker: Optional[Any] = None,
     output_fields: Optional[List[str]] = None,
 ) -> List[Dict[str, Any]]:
@@ -20,7 +20,7 @@ async def search(
         output_fields = ["id", "text", "metadata"]
 
     client = get_milvus_client()
-    embedding = encode_text(query)
+    embedding = await encode_text(query)
 
     # 召回并粗排
     if mode == "hybrid":
@@ -50,7 +50,7 @@ async def search(
             collection_name=collection_name,
             data=[embedding["dense"][0]],
             anns_field="dense_embed",
-            param={"metric_type": "IP"},
+            search_params={"metric_type": "IP"},
             limit=top_k,
             output_fields=output_fields,
         )
@@ -86,7 +86,8 @@ async def search(
     # 精排
     reranker = get_reranker()
     rerank_results = []
-    for rerank_res in reranker(query, [res["text"] for res in results], top_k=top_k):
+    rerank_result = await reranker(query, [res["text"] for res in results], top_k)
+    for rerank_res in rerank_result:
         results[rerank_res.index]["score"] = rerank_res.score
         rerank_results.append(results[rerank_res.index])
 

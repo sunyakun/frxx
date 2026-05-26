@@ -19,6 +19,10 @@ class Settings(BaseSettings):
     milvus_collection_name: str = "frxx"
     milvus_token: str = "root:Milvus"
 
+    # GLM 配置
+    glm_base_url: str | None = None
+    glm_api_key: str | None = None
+
     # LLM API 配置
     llm_api_base_url: str = ""
     llm_api_key: str = ""

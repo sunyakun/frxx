@@ -1,22 +1,91 @@
 import uuid
-from typing import Dict, List, Optional, Tuple
+from typing import Awaitable, Callable, Dict, List, Tuple
 
+import httpx
 import numpy as np
 import torch
 from pymilvus.model.base import RerankResult
-from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from app.config import Settings, get_settings
 
 settings: Settings = get_settings()
 
-_embed_func: Optional[BGEM3EmbeddingFunction] = None
-_reranker: Optional["BGERerankFunction"] = None
+_embed_func: Callable[[List[str]], Awaitable[Dict]] | None = None
+_reranker: Callable[[str, List[str], int], Awaitable[List[RerankResult]]] | None = None
 
 
 def sigmoid(x):
     return float(1 / (1 + np.exp(-x)))
+
+
+class GLMEmbeddingFunction:
+    async def __call__(self, texts: List[str]) -> Dict:
+        assert settings.glm_api_key and settings.glm_base_url
+        async with httpx.AsyncClient(
+            base_url=settings.glm_base_url,
+            headers={
+                "Authorization": f"Bearer {settings.glm_api_key}",
+                "Content-Type": "application/json",
+            },
+        ) as client:
+            resp = await client.post(
+                "/paas/v4/embeddings",
+                json={"model": "embedding-3", "input": texts, "dimensions": 1024},
+            )
+            resp_json = resp.json()
+            if "error" in resp_json:
+                raise Exception(
+                    f"Request GLM api fail: {resp_json['error']['message']}"
+                )
+            ranked_data = sorted(resp.json()["data"], key=lambda item: item["index"])
+            return {"dense": [item["embedding"] for item in ranked_data]}
+
+
+class GLMRerankFunction:
+    async def __call__(
+        self, query: str, documents: List[str], top_k: int = 5
+    ) -> List[RerankResult]:
+        assert settings.glm_base_url and settings.glm_api_key
+        async with httpx.AsyncClient(
+            base_url=settings.glm_base_url,
+            headers={
+                "Authorization": f"Bearer {settings.glm_api_key}",
+                "Content-Type": "application/json",
+            },
+        ) as client:
+            resp = await client.post(
+                "/paas/v4/rerank",
+                json={
+                    "model": "rerank",
+                    "query": query,
+                    "documents": documents,
+                    "top_n": top_k,
+                },
+            )
+            resp_json = resp.json()
+            if "error" in resp_json:
+                raise Exception(
+                    f"Request GLM api fail: {resp_json['error']['message']}"
+                )
+
+            ranked_order = sorted(
+                resp_json["results"],
+                key=lambda item: item["relevance_score"],
+                reverse=True,
+            )
+
+            if top_k:
+                ranked_order = ranked_order[:top_k]
+
+            return [
+                RerankResult(
+                    text=documents[item["index"]],
+                    score=item["relevance_score"],
+                    index=item["index"],
+                )
+                for item in ranked_order
+            ]
 
 
 class BGERerankFunction:
@@ -60,25 +129,25 @@ class BGERerankFunction:
         ]
 
 
-def get_embedding_func() -> BGEM3EmbeddingFunction:
+def get_embedding_func():
     global _embed_func
     if _embed_func is None:
-        _embed_func = BGEM3EmbeddingFunction()
+        _embed_func = GLMEmbeddingFunction()
     return _embed_func
 
 
-def get_reranker() -> BGERerankFunction:
+def get_reranker():
     global _reranker
     if _reranker is None:
-        _reranker = BGERerankFunction()
+        _reranker = GLMRerankFunction()
     return _reranker
 
 
-def encode_text(text: str | List[str]) -> Dict:
+async def encode_text(text: str | List[str]) -> Dict:
     func = get_embedding_func()
     if isinstance(text, str):
         text = [text]
-    return func(text)
+    return await func(text)
 
 
 def chunk_text(
@@ -109,7 +178,7 @@ async def encode_chunks_async(
 
     for i in range(0, len(chunks), batch_size):
         batch = chunks[i : i + batch_size]
-        encoded = encode_text(batch)
+        encoded = await encode_text(batch)
         dense_embeddings.extend(encoded["dense"])
         sparse_embeddings.extend(encoded["sparse"])
 

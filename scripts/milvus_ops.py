@@ -9,6 +9,7 @@
 """
 
 import argparse
+import asyncio
 import json
 import math
 import time
@@ -65,12 +66,6 @@ def create_collection():
         index_type="FLAT",
     )
 
-    index_params.add_index(
-        field_name="sparse_embed",
-        metric_type="IP",
-        index_type="SPARSE_INVERTED_INDEX",
-    )
-
     get_milvus_client().create_index(
         collection_name=settings.milvus_collection_name, index_params=index_params
     )
@@ -83,6 +78,7 @@ def create_collection():
 def generate_parquet():
     """生成 Parquet 文件"""
     batch_size = 32
+    num_rows_commit = 1000
 
     ################### partition and chunk ###################
     eles = []
@@ -117,23 +113,19 @@ def generate_parquet():
     writer = LocalBulkWriter(
         schema=milvus_collection_schema,
         local_path="./dist/volumes/milvus/data",
-        segment_size=512 * MB,  # Default value
+        chunk_size=512 * MB,
         file_type=BulkFileType.PARQUET,
     )
     for ary in tqdm(np.array_split(records, math.ceil(len(chunks) / batch_size))):
         sub_records: List[Dict] = ary.tolist()
-        encoded_result = encode_text([r["text"] for r in sub_records])
-        for record, dense, sparse in zip(
-            sub_records, encoded_result["dense"], encoded_result["sparse"]
-        ):
+        encoded_result = asyncio.run(encode_text([r["text"] for r in sub_records]))
+        for record, dense in zip(sub_records, encoded_result["dense"]):
             record["dense_embed"] = dense
-            record["sparse_embed"] = {
-                "indices": sparse.indices.tolist(),
-                "values": sparse.data.tolist(),
-            }
         for record in sub_records:
             writer.append_row(record)
-        writer.commit()
+        if writer.buffer_row_count % num_rows_commit == 0:
+            writer.commit()
+    writer.commit()
     print(f"Finish write data to files: {writer.batch_files}")
 
 

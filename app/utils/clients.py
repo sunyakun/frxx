@@ -13,7 +13,6 @@ _fields = [
         name="id", dtype=DataType.INT64, auto_id=True, is_primary=True, max_length=200
     ),
     FieldSchema(name="dense_embed", dtype=DataType.FLOAT_VECTOR, dim=1024),
-    FieldSchema(name="sparse_embed", dtype=DataType.SPARSE_FLOAT_VECTOR),
     FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=65535),
     FieldSchema(name="metadata", dtype=DataType.JSON),
 ]

@@ -1,4 +1,3 @@
-import time
 import uuid
 from typing import AsyncGenerator
 
@@ -34,13 +33,10 @@ async def chat_completions_endpoint(
 ):
     try:
         top_k = min(request.top_k, 10)
-
-        start_time = time.time()
         retrieval_results = await search(
             query=request.query,
             collection_name="frxx",
             top_k=top_k,
-            mode="hybrid",
         )
 
         retrieval_data = [
