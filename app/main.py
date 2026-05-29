@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.config import get_settings
 from app.models import ErrorResponse
@@ -36,6 +37,8 @@ app.include_router(health.router, prefix="/api/v1")
 app.include_router(chat.router, prefix="/api/v1")
 app.include_router(retrieval.router, prefix="/api/v1")
 app.include_router(documents.router, prefix="/api/v1")
+
+app.mount("/", StaticFiles(directory="./web/dist", html=True))
 
 
 @app.exception_handler(RequestValidationError)

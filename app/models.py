@@ -119,3 +119,9 @@ class ErrorResponse(BaseModel):
 
 class ErrorMessage(BaseModel):
     message: str
+
+
+class RerankResult(BaseModel):
+    text: str
+    score: float
+    index: int

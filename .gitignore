@@ -36,4 +36,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 __pycache__
 
-./frxx/
+# Dist artifact
+./app.tar.gz

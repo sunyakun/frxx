@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { SearchResult, RetrievalResult, StreamChunk } from "../types";
-import { mockResults } from "../types";
+import { config } from "../config";
 
 interface SearchResultsProps {
   onViewDetail: (title: string) => void;
@@ -35,13 +35,72 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
     setThinking("")
     setAnswer("")
 
-    try {
-      // 创建 AbortController 用于超时控制
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
+    // 创建 AbortController 用于超时控制
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
+    const aiSummary: string[] = [];
+    const aiThinking: string[] = [];
+    let lastText: string = ""
+    let searchResults: SearchResult[] = [];
 
+    const parseChunkText = (chunk: string): StreamChunk[] => {
+      const chunkEvents = new Array<StreamChunk>()
+      chunk = lastText + chunk
+      const rawEvents = chunk.split("\n\n")
+      if(rawEvents.length === 0) {
+        return []
+      }
+      lastText = rawEvents.pop()
+      for(let rawEvent of rawEvents) {
+        if(!rawEvent.startsWith("data: ")) {
+          continue
+        }
+        let chunkEvent = JSON.parse(rawEvent.slice(6))
+        chunkEvents.push(chunkEvent)
+      }
+      return chunkEvents
+    }
+
+    const processEvent = (chunk: StreamChunk) => {
+      switch (chunk.type) {
+        case "retrieval":
+          if (chunk.retrieval_results && chunk.retrieval_results.length > 0) {
+            searchResults = chunk.retrieval_results.map(convertToSearchResult);
+            setApiResponse(searchResults);
+          }
+          break;
+
+        case "thinking":
+          if (chunk.content) {
+            aiThinking.push(chunk.content);
+            const fullThinking = aiThinking.join('');
+            setThinking(fullThinking);
+          }
+          break;
+
+        case "content":
+          if (chunk.content) {
+            aiSummary.push(chunk.content);
+            const fullSummary = aiSummary.join('');
+            setAnswer(fullSummary);
+          }
+          break;
+
+        case "done":
+          setIsLoading(false);
+          break;
+
+        case "error":
+          console.error("API错误:", chunk.error);
+          setAnswer(chunk.error)
+          setIsLoading(false);
+          break;
+      }
+    }
+
+    try{
       // 调用后端API
-      const response = await fetch("http://localhost:8000/api/v1/chat/completions", {
+      const response = await fetch(`${config.apiBaseUrl}/api/v1/chat/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,78 +127,23 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
         throw new Error("无法获取响应流");
       }
 
-      const aiSummary: string[] = [];
-      const aiThinking: string[] = [];
-      let searchResults: SearchResult[] = [];
-
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n');
+        const received = decoder.decode(value, {stream: true});
 
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6);
-            if (data.trim() === '[DONE]') continue;
-
-            try {
-              const chunk: StreamChunk = JSON.parse(data);
-
-              switch (chunk.type) {
-                case "retrieval":
-                  if (chunk.retrieval_results && chunk.retrieval_results.length > 0) {
-                    searchResults = chunk.retrieval_results.map(convertToSearchResult);
-                    setApiResponse(searchResults);
-                  }
-                  break;
-
-                case "thinking":
-                  if (chunk.content) {
-                    aiThinking.push(chunk.content);
-                    const fullThinking = aiThinking.join('');
-                    setThinking(fullThinking);
-                  }
-                  break;
-
-                case "content":
-                  if (chunk.content) {
-                    aiSummary.push(chunk.content);
-                    const fullSummary = aiSummary.join('');
-                    setAnswer(fullSummary);
-                  }
-                  break;
-
-                case "done":
-                  setIsLoading(false);
-                  break;
-
-                case "error":
-                  console.error("API错误:", chunk.error);
-                  setAnswer(chunk.error)
-                  setIsLoading(false);
-                  break;
-              }
-            } catch (e) {
-              setAnswer("解析数据失败: " + e);
-            }
-          }
+        const chunkEvents = parseChunkText(received)
+        for(let chunkEvent of chunkEvents) {
+          processEvent(chunkEvent)
         }
       }
-    } catch (error) {
-      setIsLoading(false);
-
-      // 超时错误处理
-      if (error instanceof Error && error.name === 'AbortError') {
-        setAnswer('请求超时，请检查后端服务是否正常运行或稍后重试');
-        return;
-      }
-
-      // 兜底显示
-      setAnswer("请求失败: " + error);
+    } catch(e) {
+      setIsLoading(false)
+      setAnswer("检索失败: " + e)
     }
-  };
+
+  }
 
   const sortedResults = [...apiResponse].sort((a, b) => {
     return sortAscending

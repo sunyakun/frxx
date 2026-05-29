@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { SearchHistory } from "./components/SearchHistory";
 import { SearchResults } from "./components/SearchResults";
-import { mockResults, mockSummary } from "./components/mockData";
-import type { SearchResult } from "./types";
 
 function App() {
 

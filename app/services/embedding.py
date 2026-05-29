@@ -3,11 +3,9 @@ from typing import Awaitable, Callable, Dict, List, Tuple
 
 import httpx
 import numpy as np
-import torch
-from pymilvus.model.base import RerankResult
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from app.config import Settings, get_settings
+from app.models import RerankResult
 
 settings: Settings = get_settings()
 
@@ -86,47 +84,6 @@ class GLMRerankFunction:
                 )
                 for item in ranked_order
             ]
-
-
-class BGERerankFunction:
-    def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("BAAI/bge-reranker-v2-m3")
-        self.model = AutoModelForSequenceClassification.from_pretrained(
-            "BAAI/bge-reranker-v2-m3"
-        )
-        self.model.eval()
-
-    def __call__(
-        self, query: str, documents: List[str], top_k: int = 5
-    ) -> List[RerankResult]:
-        pairs = [[query, doc] for doc in documents]
-        with torch.no_grad():
-            inputs = self.tokenizer(
-                pairs,
-                padding=True,
-                truncation=True,
-                return_tensors="pt",
-                max_length=512,
-            )
-            scores = (
-                self.model(**inputs, return_dict=True)
-                .logits.view(
-                    -1,
-                )
-                .float()
-            )
-        scores = [sigmoid(score) for score in scores]
-        ranked_order = sorted(
-            list(range(len(scores))), key=lambda i: scores[i], reverse=True
-        )[:top_k]
-
-        if top_k:
-            ranked_order = ranked_order[:top_k]
-
-        return [
-            RerankResult(text=documents[i], score=scores[i], index=i)
-            for i in ranked_order
-        ]
 
 
 def get_embedding_func():

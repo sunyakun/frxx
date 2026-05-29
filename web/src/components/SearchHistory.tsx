@@ -32,43 +32,15 @@ export const SearchHistory: React.FC<SearchHistoryProps> = ({
     const loadHistory = () => {
       const rawHistory = localStorage.getItem("searchHistory");
       if (!rawHistory) {
-        const DEFAULT_HISTORY = [
-          "韩立修炼功法",
-          "青竹蜂云剑",
-          "乱星海秘境",
-          "筑基丹配方",
-          "血玉蜘蛛",
-        ];
-        setHistory(DEFAULT_HISTORY);
         return;
       }
 
-      try {
-        const parsed = JSON.parse(rawHistory);
-        if (
-          Array.isArray(parsed) &&
-          parsed.every((item) => typeof item === "string")
-        ) {
-          setHistory(parsed);
-        } else {
-          const DEFAULT_HISTORY = [
-            "韩立修炼功法",
-            "青竹蜂云剑",
-            "乱星海秘境",
-            "筑基丹配方",
-            "血玉蜘蛛",
-          ];
-          setHistory(DEFAULT_HISTORY);
-        }
-      } catch {
-        const DEFAULT_HISTORY = [
-          "韩立修炼功法",
-          "青竹蜂云剑",
-          "乱星海秘境",
-          "筑基丹配方",
-          "血玉蜘蛛",
-        ];
-        setHistory(DEFAULT_HISTORY);
+      const parsed = JSON.parse(rawHistory);
+      if (
+        Array.isArray(parsed) &&
+        parsed.every((item) => typeof item === "string")
+      ) {
+        setHistory(parsed);
       }
     };
 
